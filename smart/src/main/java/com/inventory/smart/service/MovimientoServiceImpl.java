@@ -10,11 +10,26 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Implementación de la lógica de negocio para el registro y consulta de movimientos de inventario.
+ * <p>Esta clase orquesta la validación de stock y delega la actualización atómica
+ * del mismo a la entidad Producto.</p>
+ *
+ * @author Grupo Integrador
+ * @since 1.0
+ */
 @Service
 public class MovimientoServiceImpl implements MovimientoService {
 
     private final MovimientoRepository movimientoRepository;
     private final ProductoService productoService;
+
+    /**
+     * Constructor para la inyección de dependencias.
+     *
+     * @param movimientoRepository repositorio de movimientos
+     * @param productoService      servicio de productos para validaciones cruzadas
+     */
 
     public MovimientoServiceImpl(MovimientoRepository movimientoRepository, ProductoService productoService) {
         this.movimientoRepository = movimientoRepository;

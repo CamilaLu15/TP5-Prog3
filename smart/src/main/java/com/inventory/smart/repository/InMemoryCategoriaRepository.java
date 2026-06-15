@@ -13,6 +13,13 @@ import org.springframework.stereotype.Repository;
 public class InMemoryCategoriaRepository 
         extends GenericInMemoryRepository<Categoria, Long> 
         implements CategoriaRepository {
+                @Override
+    protected Long getEntityId(Categoria entity) {
+        return entity.getId();
+    }
 
-
+    @Override
+    protected void setEntityId(Categoria entity, Long id) {
+        entity.setId(id);
+    }
 }

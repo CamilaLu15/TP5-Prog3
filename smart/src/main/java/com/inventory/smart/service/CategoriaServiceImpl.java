@@ -9,12 +9,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Implementación de la lógica de negocio para las categorías.
+ * <p>Aplica las validaciones de integridad referencial antes de permitir
+ * la eliminación de registros.</p>
+ *
+ * @author Grupo Integrador
+ * @since 1.0
+ */
 @Service
 public class CategoriaServiceImpl implements CategoriaService {
 
     private final CategoriaRepository categoriaRepository;
     private final ProductoRepository productoRepository;
 
+    /**
+     * Constructor para la inyección de dependencias.
+     *
+     * @param categoriaRepository repositorio de categorías
+     * @param productoRepository  repositorio de productos para validaciones de integridad
+     */
    
     public CategoriaServiceImpl(CategoriaRepository categoriaRepository, ProductoRepository productoRepository) {
         this.categoriaRepository = categoriaRepository;
